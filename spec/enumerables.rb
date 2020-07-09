@@ -69,4 +69,19 @@ describe Enumerable do
 
   end
 
+  describe '#my_none' do
+    it " Return false when every element is true and no block is given" do
+      expect([1,"ada",2].my_none?).to eq(false)
+    end
+
+    it "Return true when every element returns false and a block is given" do
+      expect(["one","two","four","five"].my_none?{|el| el.length>=10}).to eq(true)
+    end
+
+    it "Return true when every element returns false for a class pattern" do
+      expect(["one","two","four","five"].my_none?(Integer)).to eq(true)
+    end
+
+  end
+
 end
