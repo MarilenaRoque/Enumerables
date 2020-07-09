@@ -13,7 +13,7 @@ describe Enumerable do
     end
   end
 
-  describe 'my_each_with_index' do
+  describe '#my_each_with_index' do
     it "Return an enumerator when no blocks given" do 
       result = [1,2,6].my_each_with_index
       expect(result.class).to eq(Enumerator) 
@@ -23,6 +23,20 @@ describe Enumerable do
       [1,2,6].my_each_with_index {|el,index| array << el.to_s + index.to_s}      
       expect(array).to eq(%w(10 21 62))
     end
+  end
 
+  describe '#my_select' do
+    it "return an array with the even numbers inside the original array" do
+      expect([1,2,3,4].my_select {|el| el.even?}).to eq([2,4])
+    end
+
+    it "return an array with the even numbers inside the range" do
+      expect((1..10).my_select {|el| el.even?}).to eq([2,4,6,8,10])
+    end
+    
+    it "Return an enumerator when no blocks given" do 
+      result = [1,2,6].my_select
+      expect(result.class).to eq(Enumerator) 
+    end
   end
 end
