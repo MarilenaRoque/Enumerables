@@ -42,14 +42,31 @@ describe Enumerable do
 
   describe '#my_all' do
     it "Returns true if all the elements are even" do
-#      [2,4,6,8].my_all?{|el| el.even?}#true
       expect([2,4,6,8].my_all?{|el| el.even?}).to eq(true)
-      #["ant", "bear", "cat"].all? { |word| word.length >= 3 } #=> true
     end
 
-    it "Return false if not block given" do
+    it "Return false when not block given and there are false elements" do
       expect([false,"true",nil,1,10,2i].my_all?).to_not eq(true)
     end
+  end
+
+  describe '#my_any' do
+    it "Returns true because one of the elements is even" do
+      expect([1,7,8,5,1,1].my_any?{|el| el.even?}).to eq(true)
+    end
+
+    it "Return false because none of the elements are true and no block was given" do
+      expect([false,nil,nil].my_any?).to_not eq(true)
+    end
+
+    it "Return false because none of the elements are true and no block was given" do
+      expect([false,nil,nil].my_any?).to eq(false)
+    end
+
+    it "Testing if returns true when just a pattern is given" do
+      expect(["test", nil, false, 1, 52].my_any?("test")).to eq(true)
+    end
+
   end
 
 end
