@@ -99,6 +99,19 @@ describe Enumerable do
 
   end
 
+  describe '#my_map' do
+    it "Return a new array modify by the block condition" do
+      expect([1,2,6].my_map {|el| el+2}).to eq([3,4,8])
+    end
+    it "Return a new array from a range modify by the block condition" do
+      expect((1..6).my_map {|el| el-1}).to eq([0,1,2,3,4,5])
+    end
+    it "Fill a new array with the element given in the block with the same lenght of the original one" do
+      expect((1..6).my_map {"jasem"}).to eq(["jasem","jasem","jasem","jasem","jasem","jasem"])
+    end
+
+  end
+
   
 
 end
