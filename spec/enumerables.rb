@@ -84,4 +84,21 @@ describe Enumerable do
 
   end
 
+  describe '#my_count' do
+    it " Returns the number of strings equal a pattern given inside an array" do
+      expect([1,"ada",2, "mari", "jasem"].my_count("jasem")).to eq(1)
+    end
+
+    it " Returns the number of elements when no pattern or block is given inside an array" do
+      expect([1,"ada",2, "mari", "jasem"].my_count).to eq(5)
+    end
+
+    it " Returns the number of strings inside the array" do
+      expect([1,"ada",2, "mari", "jasem"].my_count {|el| el.class == String}).to eq(3)
+    end
+
+  end
+
+  
+
 end
