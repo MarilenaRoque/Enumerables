@@ -39,4 +39,17 @@ describe Enumerable do
       expect(result.class).to eq(Enumerator) 
     end
   end
+
+  describe '#my_all' do
+    it "Returns true if all the elements are even" do
+#      [2,4,6,8].my_all?{|el| el.even?}#true
+      expect([2,4,6,8].my_all?{|el| el.even?}).to eq(true)
+      #["ant", "bear", "cat"].all? { |word| word.length >= 3 } #=> true
+    end
+
+    it "Return false if not block given" do
+      expect([false,"true",nil,1,10,2i].my_all?).to_not eq(true)
+    end
+  end
+
 end
