@@ -12,4 +12,17 @@ describe Enumerable do
       expect({"cat"=>0, "dog"=>1, "wombat"=>2}.my_each{|el| puts el }).to eq({"cat"=>0, "dog"=>1, "wombat"=>2})
     end
   end
+
+  describe 'my_each_with_index' do
+    it "Return an enumerator when no blocks given" do 
+      result = [1,2,6].my_each_with_index
+      expect(result.class).to eq(Enumerator) 
+    end
+    it "Expected an array witch each element is the value and the index as a string" do 
+      array=[]
+      [1,2,6].my_each_with_index {|el,index| array << el.to_s + index.to_s}      
+      expect(array).to eq(%w(10 21 62))
+    end
+
+  end
 end
