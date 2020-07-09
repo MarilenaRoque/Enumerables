@@ -112,6 +112,29 @@ describe Enumerable do
 
   end
 
+  describe '#my_inject' do
+    it "Returns the sum of every element inside an array, using a symbol argument" do
+      expect([1,2,6].my_inject(:+)).to eq(9)
+    end
+
+    it "Returns the sum every element inside an array plus 10, using a symbol and a initial value as arguments" do
+      expect([1,2,6].my_inject(10, :+)).to eq(19)
+    end
+
+    it "Returns the sum every element twice inside an array using a block" do
+      expect([1,2,3].my_inject{|memo, el| memo= memo+el+el}).to eq(11)
+    end
+
+    it "Returns the longest word inside an array" do
+      longest = %w{ cat sheep bear }.inject do |memo, word|
+        memo.length > word.length ? memo : word
+      end
+      expect(longest).to eq("sheep")
+    end
+
+  end
+
+
   
 
 end
