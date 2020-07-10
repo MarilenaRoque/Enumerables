@@ -56,7 +56,7 @@ describe Enumerable do
       expect([1, 7, 8, 5, 1, 1].my_any?(&:even?)).to eq(true)
     end
 
-    it 'Return false because none of the elements are true and no block was given' do
+    it "Don't return true because none of the elements are true and no block was given" do
       expect([false, nil, nil].my_any?).to_not eq(true)
     end
 
