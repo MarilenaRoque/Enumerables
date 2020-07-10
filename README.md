@@ -25,7 +25,7 @@
 
 [Live Demo Link](https://repl.it/@MarilenaRoque/enumerablesmethods#main.rb)
 
-## Author
+## Authors
 
 👤 **Marilena Roque**
 
